@@ -22,7 +22,7 @@ func main() {
 	admin.AddEntrancePanel(groundEntrancePanel) // add entrancepanel to parkinglot
 
 	// initialize an exit panel
-	groundFloorExitPanel := parking.NewExitPanel()
+	groundFloorExitPanel := parking.NewExitPanel(admin.GetParkingFloorMap())
 	admin.AddExitPanel(groundFloorExitPanel) // add exit panel to parkinglot
 
 	attendant := account.NewParkingAttendant(groundFloorExitPanel, "attendant", "attendant")
@@ -34,5 +34,5 @@ func main() {
 	}
 
 	attendant.AssignTicket(groundEntrancePanel, &v)
-	attendant.ProcesssTicket(v.GetTicket())
+	attendant.ProcesssTicket(&v, v.GetTicket())
 }

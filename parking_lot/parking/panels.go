@@ -121,21 +121,27 @@ func (e EntrancePanel) checkSpotAvailability(v *vehicle.Vehicle, pf *ParkingFloo
 }
 
 type ExitPanel struct {
-	id string
+	id            string
+	parkingFloors map[string]*ParkingFloor
 }
 
 func (e ExitPanel) GetId() string {
 	return e.id
 }
 
-func NewExitPanel() *ExitPanel {
+func NewExitPanel(parkingFloors map[string]*ParkingFloor) *ExitPanel {
 	return &ExitPanel{
-		id: uuid.NewString(),
+		id:            uuid.NewString(),
+		parkingFloors: parkingFloors,
 	}
 }
 
 func (e *ExitPanel) AcceptPayment(p *parkingticket.ParkingTicket) error {
 	return nil
+}
+
+func (e ExitPanel) CalculateAmount(v *vehicle.Vehicle) float64 {
+	return v.CaculatePrice()
 }
 
 func (e ExitPanel) Error() string {

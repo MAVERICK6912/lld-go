@@ -86,6 +86,6 @@ func (p Parkinglot) GetParkingFloor(parkingFloorID string) *ParkingFloor {
 	return p.parkingFloors[parkingFloorID]
 }
 
-func (p Parkinglot) GetPArkingFloorMap() map[string]*ParkingFloor {
+func (p Parkinglot) GetParkingFloorMap() map[string]*ParkingFloor {
 	return p.parkingFloors
 }

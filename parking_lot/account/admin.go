@@ -39,5 +39,5 @@ func (a Admin) GetGlobalDisplayBoard() *parking.ParkingDisplayBoard {
 }
 
 func (a Admin) GetParkingFloorMap() map[string]*parking.ParkingFloor {
-	return a.GetParkingFloorMap()
+	return parkingLot.GetParkingFloorMap()
 }

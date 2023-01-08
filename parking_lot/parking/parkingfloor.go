@@ -32,6 +32,8 @@ func (pf *ParkingFloor) addParkingSpot(ps *ParkingSpot) error {
 		return ps
 	}
 	pf.parkingSpots[ps.id] = ps
+	pf.floorDisplayBoard.ChangeCount(&ps.spotType, 1)
+	pf.globalDisplayBoard.ChangeCount(&ps.spotType, 1)
 	return nil
 }
 
